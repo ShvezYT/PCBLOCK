@@ -232,8 +232,8 @@
     <script>
         // ------------------- КОНФИГУРАЦИЯ -------------------
         const REPO_OWNER = "ShvezYT";
-        const REPO_NAME = "Test";
-        const FILE_PATH = "pcban.json";
+        const REPO_NAME = "PCBLOCK";
+        const FILE_PATH = "pc.json";
         const BRANCH = "main";
         const TOKEN = "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"; // Ваш токен
 
@@ -295,6 +295,32 @@
             }, 300);
         }
 
+        // ------------------- ФУНКЦИЯ СОЗДАНИЯ ФАЙЛА (ЕСЛИ ПУСТ) -------------------
+        async function createFileIfEmpty() {
+            try {
+                const resp = await fetch(RAW_URL, { cache: 'no-store' });
+                if (!resp.ok) {
+                    // Файл не существует — создаём
+                    await updateGitHub(false, 0);
+                    addLog('📄 Файл pc.json создан с начальной структурой', 'success');
+                    showToast('Файл успешно создан на GitHub', 'success');
+                    return true;
+                }
+                const text = await resp.text();
+                if (!text || text.trim() === '') {
+                    // Файл существует, но пустой — обновляем
+                    await updateGitHub(false, 0);
+                    addLog('📄 Пустой файл заполнен начальной структурой', 'success');
+                    showToast('Файл заполнен начальной структурой', 'success');
+                    return true;
+                }
+                return true;
+            } catch (err) {
+                addLog(`Ошибка проверки файла: ${err.message}`, 'error');
+                return false;
+            }
+        }
+
         // ------------------- ЗАПРОСЫ К GITHUB -------------------
         async function getCurrentStatus() {
             try {
@@ -305,7 +331,11 @@
                     }
                     throw new Error(`HTTP ${resp.status}: ${resp.statusText}`);
                 }
-                return await resp.json();
+                const text = await resp.text();
+                if (!text || text.trim() === '') {
+                    return { blocked: false, time: 0 };
+                }
+                return JSON.parse(text);
             } catch (err) {
                 console.warn('Ошибка получения статуса:', err);
                 throw err;
@@ -318,15 +348,19 @@
                 "Accept": "application/vnd.github.v3+json"
             };
 
-            const getResp = await fetch(API_URL, { headers });
-            if (!getResp.ok) {
-                if (getResp.status === 404) {
-                    throw new Error('Файл pcban.json не найден. Создайте его вручную.');
-                }
+            // Пытаемся получить текущий файл
+            let getResp = await fetch(API_URL, { headers });
+            let sha = null;
+
+            if (getResp.ok) {
+                const fileData = await getResp.json();
+                sha = fileData.sha;
+            } else if (getResp.status === 404) {
+                // Файл не существует — создаём с нуля
+                sha = null;
+            } else {
                 throw new Error(`Не удалось получить файл: ${getResp.status}`);
             }
-            const fileData = await getResp.json();
-            const sha = fileData.sha;
 
             const newContent = JSON.stringify({ blocked, time: timeSeconds }, null, 2);
             const encodedContent = btoa(unescape(encodeURIComponent(newContent)));
@@ -334,18 +368,34 @@
             const payload = {
                 message: `Обновление блокировки: ${blocked ? 'заблокирован' : 'свободен'}`,
                 content: encodedContent,
-                sha: sha,
                 branch: BRANCH
             };
 
-            const putResp = await fetch(API_URL, {
-                method: "PUT",
-                headers: {
-                    ...headers,
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(payload)
-            });
+            if (sha) {
+                payload.sha = sha;
+            }
+
+            let putResp;
+            if (sha) {
+                putResp = await fetch(API_URL, {
+                    method: "PUT",
+                    headers: {
+                        ...headers,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                });
+            } else {
+                // Создаём новый файл
+                putResp = await fetch(API_URL, {
+                    method: "PUT",
+                    headers: {
+                        ...headers,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                });
+            }
 
             if (!putResp.ok) {
                 const errText = await putResp.text();
@@ -412,10 +462,13 @@
         (async function init() {
             addLog('Загрузка текущего статуса...', 'info');
             try {
+                // Проверяем и создаём файл при необходимости
+                await createFileIfEmpty();
                 await refreshStatus();
                 setInterval(refreshStatus, 30000);
             } catch (e) {
                 showToast('Не удалось загрузить начальный статус', 'error');
+                addLog(`Ошибка инициализации: ${e.message}`, 'error');
             }
         })();
 
