@@ -1,6 +1,6 @@
 {
-  "blocked": true,
-  "time": 60,
+  "blocked": false,
+  "time": 0,
   "tasks": [
     {
       "description": "testb",
