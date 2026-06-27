@@ -12,7 +12,6 @@
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
         }
 
-        /* Светлый фон */
         body {
             background: linear-gradient(145deg, #eef2f7 0%, #d9e2ef 100%);
             min-height: 100vh;
@@ -29,7 +28,6 @@
             margin: 0 auto;
         }
 
-        /* Карточки — белые с тенью */
         .card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(8px);
@@ -47,7 +45,6 @@
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
         }
 
-        /* Шапка */
         .header {
             display: flex;
             justify-content: space-between;
@@ -83,7 +80,6 @@
             color: #721c24;
         }
 
-        /* Статус */
         .status-box {
             display: flex;
             justify-content: space-between;
@@ -118,7 +114,6 @@
             color: #3a4a6a;
         }
 
-        /* Поле ввода */
         .input-row {
             display: flex;
             align-items: center;
@@ -150,7 +145,6 @@
             border-color: #4a7aff;
         }
 
-        /* Кнопки */
         .btn {
             background: linear-gradient(95deg, #4a6aaf, #2a4a8a);
             border: none;
@@ -185,7 +179,6 @@
             background: linear-gradient(95deg, #e63a3a, #b02020);
         }
 
-        /* Лог */
         .log-container {
             max-height: 180px;
             overflow-y: auto;
@@ -219,7 +212,6 @@
             color: #3a4a6a;
         }
 
-        /* Тосты */
         .toast {
             position: fixed;
             bottom: 24px;
@@ -247,7 +239,6 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Скролл */
         .log-container::-webkit-scrollbar {
             width: 4px;
         }
@@ -259,7 +250,6 @@
             border-radius: 10px;
         }
 
-        /* Адаптив */
         @media (max-width: 480px) {
             .header h1 { font-size: 1.4rem; }
             .status-value { font-size: 1.2rem; }
@@ -269,13 +259,11 @@
 <body>
 <div class="container">
 
-    <!-- Шапка -->
     <div class="header">
         <h1>🔒 Блокировка ПК</h1>
         <span class="badge free" id="statusBadge">✅ Свободен</span>
     </div>
 
-    <!-- Статус -->
     <div class="card" id="statusCard" style="cursor: pointer;">
         <div class="status-box">
             <span class="status-label">Текущий статус</span>
@@ -284,7 +272,6 @@
         <span class="status-hint">⏳ Двойной клик — обновить вручную</span>
     </div>
 
-    <!-- Управление -->
     <div class="card">
         <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 10px; color: #1a2a4a;">⏱️ Заблокировать</div>
         <div class="input-row">
@@ -294,7 +281,6 @@
         <button class="btn btn-primary" id="blockBtn">🔒 Заблокировать</button>
     </div>
 
-    <!-- Лог -->
     <div class="card">
         <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 6px; color: #1a2a4a;">📋 Журнал</div>
         <div class="log-container" id="logContainer">
@@ -305,8 +291,8 @@
 </div>
 
 <script>
-    // --------------------- КОНФИГУРАЦИЯ (ОСТАЁТСЯ БЕЗ ИЗМЕНЕНИЙ) ---------------------
-    const GITHUB_TOKEN = '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';
+    // --------------------- КОНФИГУРАЦИЯ (НОВЫЙ ТОКЕН) ---------------------
+    const GITHUB_TOKEN = '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';
     const REPO_OWNER = 'ShvezYT';
     const REPO_NAME = 'PCBLOCK';
     const FILE_PATH = 'pc.json';
