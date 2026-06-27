@@ -1,10 +1,10 @@
 {
-  "blocked": false,
-  "time": 0,
+  "blocked": true,
+  "time": 3600,
   "tasks": [
     {
       "description": "TEST",
-      "done_by_user": false,
+      "done_by_user": true,
       "confirmed_by_admin": false
     }
   ],
