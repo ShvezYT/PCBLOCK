@@ -1,13 +1,7 @@
 {
-  "blocked": false,
-  "time": 0,
-  "tasks": [
-    {
-      "description": "Погулять 1час.",
-      "done_by_user": true,
-      "confirmed_by_admin": false
-    }
-  ],
+  "blocked": true,
+  "time": 3600,
+  "tasks": [],
   "unlock_after_timer": true,
   "unlock_after_tasks": true
 }
