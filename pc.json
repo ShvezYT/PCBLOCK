@@ -3,8 +3,8 @@
   "time": 3600,
   "tasks": [
     {
-      "description": "Погулять 1час.",
-      "done_by_user": false,
+      "description": "\u041f\u043e\u0433\u0443\u043b\u044f\u0442\u044c 1\u0447\u0430\u0441.",
+      "done_by_user": true,
       "confirmed_by_admin": false
     }
   ],
