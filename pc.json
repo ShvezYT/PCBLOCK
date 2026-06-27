@@ -1,6 +1,6 @@
 {
-  "blocked": true,
-  "time": 3600,
+  "blocked": false,
+  "time": 0,
   "tasks": [],
   "unlock_after_timer": true,
   "unlock_after_tasks": true
