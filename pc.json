@@ -1,4 +1,5 @@
 {
-  "blocked": true,
-  "time": 120
+  "blocked": false,
+  "time": 0,
+  "tasks": []
 }
