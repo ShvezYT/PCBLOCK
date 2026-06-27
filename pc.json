@@ -1,11 +1,5 @@
 {
   "blocked": false,
   "time": 0,
-  "tasks": [
-    {
-      "description": "testb",
-      "done_by_user": false,
-      "confirmed_by_admin": false
-    }
-  ]
+  "tasks": []
 }
