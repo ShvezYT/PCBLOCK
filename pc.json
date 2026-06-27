@@ -3,11 +3,6 @@
   "time": 0,
   "tasks": [
     {
-      "description": "testb",
-      "done_by_user": false,
-      "confirmed_by_admin": false
-    },
-    {
       "description": "Погулять 1час.",
       "done_by_user": false,
       "confirmed_by_admin": false
