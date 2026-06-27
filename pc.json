@@ -7,5 +7,7 @@
       "done_by_user": false,
       "confirmed_by_admin": false
     }
-  ]
+  ],
+  "unlock_after_timer": true,
+  "unlock_after_tasks": true
 }
