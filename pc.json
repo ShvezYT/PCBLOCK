@@ -1,6 +1,6 @@
 {
-  "blocked": false,
-  "time": 0,
+  "blocked": true,
+  "time": 120,
   "tasks": [
     {
       "description": "TEST",
@@ -10,5 +10,6 @@
   ],
   "unlock_after_timer": true,
   "unlock_after_tasks": true,
-  "start_time": null
+  "start_time": 1782626357,
+  "unlock_mode": "both"
 }
