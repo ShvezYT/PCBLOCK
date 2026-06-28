@@ -3,7 +3,17 @@
   "time": 120,
   "tasks": [
     {
+      "description": "TEST",
+      "done_by_user": false,
+      "confirmed_by_admin": false
+    },
+    {
       "description": "Почитать",
+      "done_by_user": false,
+      "confirmed_by_admin": false
+    },
+    {
+      "description": "Погулять",
       "done_by_user": false,
       "confirmed_by_admin": false
     }
