@@ -16,11 +16,6 @@
       "description": "Погулять",
       "done_by_user": false,
       "confirmed_by_admin": false
-    },
-    {
-      "description": "1",
-      "done_by_user": false,
-      "confirmed_by_admin": false
     }
   ],
   "unlock_after_timer": true,
