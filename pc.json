@@ -3,17 +3,7 @@
   "time": 120,
   "tasks": [
     {
-      "description": "TEST",
-      "done_by_user": false,
-      "confirmed_by_admin": false
-    },
-    {
       "description": "Почитать",
-      "done_by_user": false,
-      "confirmed_by_admin": false
-    },
-    {
-      "description": "Посочь дедушке",
       "done_by_user": false,
       "confirmed_by_admin": false
     }
