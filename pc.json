@@ -1,7 +1,18 @@
 {
   "blocked": true,
   "time": 120,
-  "tasks": [],
+  "tasks": [
+    {
+      "description": "TEST",
+      "done_by_user": false,
+      "confirmed_by_admin": false
+    },
+    {
+      "description": "Помочь дедушке",
+      "done_by_user": false,
+      "confirmed_by_admin": false
+    }
+  ],
   "unlock_after_timer": true,
   "unlock_after_tasks": true,
   "start_time": 1782626357,
