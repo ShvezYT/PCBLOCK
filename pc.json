@@ -1,13 +1,7 @@
 {
   "blocked": true,
   "time": 120,
-  "tasks": [
-    {
-      "description": "TEST",
-      "done_by_user": false,
-      "confirmed_by_admin": false
-    }
-  ],
+  "tasks": [],
   "unlock_after_timer": true,
   "unlock_after_tasks": true,
   "start_time": 1782626357,
