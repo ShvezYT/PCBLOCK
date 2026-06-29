@@ -5,7 +5,7 @@
     {
       "description": "Почитать",
       "done_by_user": true,
-      "confirmed_by_admin": true
+      "confirmed_by_admin": false
     },
     {
       "description": "Помочь дедушке",
