@@ -14,7 +14,7 @@
     },
     {
       "description": "\u041f\u043e\u0433\u0443\u043b\u044f\u0442\u044c",
-      "done_by_user": false,
+      "done_by_user": true,
       "confirmed_by_admin": false
     }
   ],
