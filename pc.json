@@ -10,12 +10,12 @@
     {
       "description": "Помочь дедушке",
       "done_by_user": true,
-      "confirmed_by_admin": true
+      "confirmed_by_admin": false
     },
     {
       "description": "Погулять",
       "done_by_user": true,
-      "confirmed_by_admin": true
+      "confirmed_by_admin": false
     }
   ],
   "unlock_after_timer": true,
