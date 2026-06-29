@@ -10,7 +10,7 @@
     {
       "description": "Помочь дедушке",
       "done_by_user": true,
-      "confirmed_by_admin": false
+      "confirmed_by_admin": true
     },
     {
       "description": "Погулять",
